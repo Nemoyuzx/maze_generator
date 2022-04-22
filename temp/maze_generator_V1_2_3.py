@@ -1,4 +1,4 @@
-from pyqt5_pre_dispose import *
+from pyqt5_pre_dispose_copy import *
 import sys
 from random import randint, choice
 from enum import Enum
@@ -16,26 +16,26 @@ class entrance_UI(PyQt5_QDialog):
         self.button_size_wide = 60
 
         self.setFixedSize(self.dialog_size_long,self.dialog_size_wide)           #设置窗口大小
-        setBackground(self,"QDialog",'background.png')
+        self.setBackground('background.png')
         self.setWindowTitle('迷宫生成器 V1.2.2')           #设置窗口标题
         #self.setWindowIcon(QIcon('RESOURSE/drawable/program_Icon.png'))
 
         self.name_dialog = PyQt5_QLabel(self,self.dialog_size_long/4-25,30,600,200) #UI内标题
         self.name_dialog.setFont(QFont('宋体',20))
-        setTextColor(self.name_dialog,"QLable",'white')
+        self.name_dialog.setTextColor('#FFFFFF')
         self.name_dialog.setText('迷宫生成器 V1.2.2')
 
 
         self.enter_buttom_9_9 = PyQt5_QPushButton(self,self.dialog_size_long/4,self.button_size_long/3*2-self.button_size_wide,self.button_size_long,self.button_size_wide)   #按钮组件（左，上，宽，高）
-        setBackground(self.enter_buttom_9_9,"QPushButton",'simple_buttom_#03A89E.png')  #设置按钮的背景图片
-        setPressedBackground(self.enter_buttom_9_9,"QPushButton",'simple_buttom_#03A89E_dark.png')  #设置按钮被按压时的背景图片
+        self.enter_buttom_9_9.setBackground('simple_buttom_#03A89E.png')  #设置按钮的背景图片
+        self.enter_buttom_9_9.setPressedBackground('simple_buttom_#03A89E_dark.png')  #设置按钮被按压时的背景图片
         self.enter_buttom_9_9.setText('迷宫 9×9 双层')
         self.enter_buttom_9_9.clicked.connect(lambda:self.map_dispose_and_show(9))   #设置按钮的点击事件
 
 
         self.enter_buttom_13_13 = PyQt5_QPushButton(self,self.dialog_size_long/4,self.button_size_long/3*2+10+self.button_size_wide,self.button_size_long,self.button_size_wide)   #按钮组件（左，上，宽，高）
-        setBackground(self.enter_buttom_13_13,"QPushButton","simple_buttom_#03A89E.png")  
-        setPressedBackground(self.enter_buttom_13_13,"QPushButton","simple_buttom_#03A89E_dark.png")  
+        self.enter_buttom_13_13.setBackground("simple_buttom_#03A89E.png")  
+        self.enter_buttom_13_13.setPressedBackground("simple_buttom_#03A89E_dark.png")  
         self.enter_buttom_13_13.setText('迷宫 13×13 三层')
         self.enter_buttom_13_13.clicked.connect(lambda:self.map_dispose_and_show(13))  
 

@@ -1,4 +1,3 @@
-from tokenize import group
 from pyqt5_pre_dispose import *
 from maze_generator_V1_2_3 import data_exchange
 from random import randint
@@ -65,12 +64,12 @@ class UI_show_map(PyQt5_QDialog):
         self.setWindowTitle("双层9×9迷宫生成器   第%s个"%Compute_9time9.num)
 
         self.what1=PyQt5_QLabel(self,50,30,502,501)
-        setBackground(self.what1,"Lable",'合成迷宫底_9乘9.jpg')
+        self.what1.setBackground('Maze_BackGround_9x9.jpg')
         self.what2=PyQt5_QLabel(self,50,30,502,501)
-        setBackground(self.what2,"Label",'问号.png')
+        self.what2.setBackground('question_mark.png')
         #--------------------------------------------------------------
         self.group2=PyQt5_QGroupBox(self,650,30,502,501)
-        setBackground(self.group2,"GroupBox",'合成迷宫底_9乘9.jpg')
+        self.group2.setBackground('Maze_BackGround_9x9.jpg')
         self.word_label1 = PyQt5_QLabel(self,830,551,250,30)
         self.word_label1.setText('第一层迷宫')
 
@@ -79,7 +78,7 @@ class UI_show_map(PyQt5_QDialog):
             self.add_label_2(y)
 
         self.group3=PyQt5_QGroupBox(self,1250,30,502,501)
-        setBackground(self.group3,"GroupBox",'合成迷宫底_9乘9.jpg')
+        self.group3.setBackground('Maze_BackGround_9x9.jpg')
         self.word_label1 = PyQt5_QLabel(self,1440,551,250,30)
         self.word_label1.setText('第二层迷宫')
 
@@ -89,12 +88,12 @@ class UI_show_map(PyQt5_QDialog):
 
     def add_label_2(self,y):#55.56
         self.label = PyQt5_QLabel(self.group2,(y//9)*55.56,-2+(y%9)*55.56,57.56,58.56)
-        setBackground(self.label,"Lable",'墙壁第一层单块.png')
+        self.label.setBackground('wall_first.png')
         self.label.setVisible(label_sit_TRUE_or_FALSE_floor1[y])
 
     def add_label_3(self,z):#55.56
         self.label = PyQt5_QLabel(self.group3,(z//9)*55.56,-2+(z%9)*55.56,57.56,58.56)
-        setBackground(self.label,"Lable",'墙壁第二层单块.png')
+        self.label.setBackground('wall_second.png')
         self.label.setVisible(label_sit_TRUE_or_FALSE_floor2[z])
         
 
@@ -109,7 +108,7 @@ class answer(PyQt5_QDialog):
         self.setWindowTitle("双层9×9迷宫生成器-答案界面  第%s个"%Compute_9time9.num)
 
         self.group1=PyQt5_QGroupBox(self,50,30,502,501)
-        setBackground(self.group1,"GroupBox",'合成迷宫底_9乘9.jpg')
+        self.group1.setBackground('Maze_BackGround_9x9.jpg')
         self.word_label1 = PyQt5_QLabel(self,250,551,250,30)
         self.word_label1.setText('合成迷宫')
 
@@ -124,5 +123,5 @@ class answer(PyQt5_QDialog):
 
     def add_label_1(self,x):#55.56
         self.label = PyQt5_QLabel(self.group1,(x//9)*55.56,-2+(x%9)*55.56,57.56,58.56)
-        setBackground(self.label,"Lable",'墙壁合成单块.png')
+        self.label.setBackground('wall_purple.png')
         self.label.setVisible(False_and_True[x])
