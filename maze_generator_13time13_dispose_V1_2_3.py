@@ -1,5 +1,5 @@
 from pyqt5_pre_dispose import *
-from maze_generator_V1_2_2 import data_exchange
+from maze_generator_V1_2_3 import data_exchange
 from random import randint
 
 global_list = []
