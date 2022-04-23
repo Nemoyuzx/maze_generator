@@ -1,6 +1,6 @@
-from PyQt5.QtCore import *#line:1
-from PyQt5.QtGui import * #QFont
-from PyQt5.QtWidgets import *#line:3
+from PyQt5.QtCore import pyqtSignal #line:1
+from PyQt5.QtGui import QFont,QMouseEvent
+from PyQt5.QtWidgets import QDialog,QLabel,QPushButton,QGroupBox,QApplication#line:3
 
 parwidth =600 #line:13
 
