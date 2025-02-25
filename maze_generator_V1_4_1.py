@@ -1,13 +1,14 @@
 import sys
-from pyqt5_pre_dispose import *
-from PyQt5.QtWidgets import QApplication
+from pyqt6_pre_dispose import *
+from PyQt6.QtWidgets import QApplication
+from PyQt6.QtGui import QFont
 
 dialog_backGround_color = "#082E54"
 dialog_buttom_color = "#03A89E"
 dialog_buttomPUSHED_color = "#028077"
 
 
-class entrance_UI(PyQt5_QDialog):
+class entrance_UI(PyQt6_QDialog):
     def showDialog(self):
         self.show()
     
@@ -21,18 +22,18 @@ class entrance_UI(PyQt5_QDialog):
         self.setBackgroundColor(dialog_backGround_color)
         self.setWindowTitle('迷宫生成器 V1.2.2')           #设置窗口标题
 
-        self.name_dialog = PyQt5_QLabel(self,self.dialog_size_long/4-25,30,600,200) #UI内标题
+        self.name_dialog = PyQt6_QLabel(self,self.dialog_size_long/4-25,30,600,200) #UI内标题
         self.name_dialog.setFont(QFont('宋体',20))
         self.name_dialog.setTextColor('#FFFFFF')
         self.name_dialog.setText('迷宫生成器 V1.2.2')
 
-        self.enter_buttom_9_9 = PyQt5_QPushButton(self,self.dialog_size_long/4,self.button_size_long/3*2-self.button_size_wide,self.button_size_long,self.button_size_wide)   #按钮组件（左，上，宽，高）
+        self.enter_buttom_9_9 = PyQt6_QPushButton(self,self.dialog_size_long/4,self.button_size_long/3*2-self.button_size_wide,self.button_size_long,self.button_size_wide)   #按钮组件（左，上，宽，高）
         self.enter_buttom_9_9.setBackgroundColor(dialog_buttom_color) 
         self.enter_buttom_9_9.setPressedBackgroundColor(dialog_buttomPUSHED_color)  #设置按钮被按压时的背景图片
         self.enter_buttom_9_9.setText('迷宫 9 × 9 双层')
         self.enter_buttom_9_9.clicked.connect(lambda:self.map_dispose_and_show(9))   #设置按钮的点击事件
 
-        self.enter_buttom_13_13 = PyQt5_QPushButton(self,self.dialog_size_long/4,self.button_size_long/3*2+10+self.button_size_wide,self.button_size_long,self.button_size_wide)   #按钮组件（左，上，宽，高）
+        self.enter_buttom_13_13 = PyQt6_QPushButton(self,self.dialog_size_long/4,self.button_size_long/3*2+10+self.button_size_wide,self.button_size_long,self.button_size_wide)   #按钮组件（左，上，宽，高）
         self.enter_buttom_13_13.setBackgroundColor(dialog_buttom_color)  
         self.enter_buttom_13_13.setPressedBackgroundColor(dialog_buttomPUSHED_color)  
         self.enter_buttom_13_13.setText('迷宫 13 × 13 三层')
@@ -61,4 +62,4 @@ if __name__ == '__main__':
     dialog = entrance_UI()
     dialog.setupUI()
     dialog.showDialog()
-    app.exec_()
+    app.exec()

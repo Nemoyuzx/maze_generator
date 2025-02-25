@@ -1,4 +1,4 @@
-from pyqt5_pre_dispose import *
+from pyqt6_pre_dispose import *
 from maze_gener_Core import run
 from random import randint
 
@@ -73,7 +73,7 @@ class Compute_13time13():
                     label_sit_T_or_F_floor2.append(False)
                     label_sit_T_or_F_floor3.append(True)
 
-class UI_show_map(PyQt5_QDialog):    #题目层
+class UI_show_map(PyQt6_QDialog):    #题目层
     def showDialog(self):
         self.show()
 
@@ -81,32 +81,32 @@ class UI_show_map(PyQt5_QDialog):    #题目层
         self.setFixedSize(2400,600)
         self.setWindowTitle("三层13×13迷宫生成器   第%s个"%Compute_13time13.num)
         #---------------------------------------------------二步----------------
-        self.group1=PyQt5_QGroupBox(self,50,30,13*40,13*40)
+        self.group1=PyQt6_QGroupBox(self,50,30,13*40,13*40)
         LabelAdding.add_label_NoneWall(self,Maze_Side_length,self.group1) 
-        self.what=PyQt5_QLabel(self.group1,0,0,13*40,13*40)
+        self.what=PyQt6_QLabel(self.group1,0,0,13*40,13*40)
         self.what.setText('?')
         self.what.setFontSize(130)
-        self.what.setAlignment(Qt.AlignCenter)
+        self.what.setAlignment(Qt.AlignmentFlag.AlignCenter)
         #---------------------------------------------------三部--1--------------
-        self.word_label2 = PyQt5_QLabel(self,50+13*40+50,550,520,40)
+        self.word_label2 = PyQt6_QLabel(self,50+13*40+50,550,520,40)
         self.word_label2.setText('第一层迷宫')
-        self.word_label2.setAlignment(Qt.AlignCenter)
-        self.group2=PyQt5_QGroupBox(self,50+13*40+50,30,13*40,13*40)
+        self.word_label2.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.group2=PyQt6_QGroupBox(self,50+13*40+50,30,13*40,13*40)
         LabelAdding.add_label(self,self.group2,layer1_color,Maze_Side_length,label_sit_T_or_F_floor1)
         #---------------------------------------------------三部--2--------------
-        self.word_label3 = PyQt5_QLabel(self,1190,550,520,40)
+        self.word_label3 = PyQt6_QLabel(self,1190,550,520,40)
         self.word_label3.setText('第二层迷宫')
-        self.word_label3.setAlignment(Qt.AlignCenter)
-        self.group3=PyQt5_QGroupBox(self,1190,30,13*40,13*40)
+        self.word_label3.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.group3=PyQt6_QGroupBox(self,1190,30,13*40,13*40)
         LabelAdding.add_label(self,self.group3,layer2_color,Maze_Side_length,label_sit_T_or_F_floor2)
         #---------------------------------------------------三部--3--------------
-        self.word_label4 = PyQt5_QLabel(self,1760,550,520,40)
+        self.word_label4 = PyQt6_QLabel(self,1760,550,520,40)
         self.word_label4.setText('第三层迷宫')
-        self.word_label4.setAlignment(Qt.AlignCenter)
-        self.group4=PyQt5_QGroupBox(self,1760,30,13*40,13*40)
+        self.word_label4.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.group4=PyQt6_QGroupBox(self,1760,30,13*40,13*40)
         LabelAdding.add_label(self,self.group4,layer3_color,Maze_Side_length,label_sit_T_or_F_floor3)
 
-class answer(PyQt5_QDialog):   #答案层
+class answer(PyQt6_QDialog):   #答案层
     def showDialog(self):
         self.show()
 
@@ -114,14 +114,14 @@ class answer(PyQt5_QDialog):   #答案层
         self.setFixedSize(1200,600)
         self.setWindowTitle("三层13×13迷宫生成器-答案界面   第%s个"%Compute_13time13.num)
 
-        self.word_label1 = PyQt5_QLabel(self,250,551,250,30)
+        self.word_label1 = PyQt6_QLabel(self,250,551,250,30)
         self.word_label1.setText('原迷宫')
-        self.group1=PyQt5_QGroupBox(self,50,30,40*Maze_Side_length,40*Maze_Side_length)
+        self.group1=PyQt6_QGroupBox(self,50,30,40*Maze_Side_length,40*Maze_Side_length)
         LabelAdding.add_label(self,self.group1,'purple',13,F_a_T)
 
-        self.word_label1 = PyQt5_QLabel(self,830,551,250,30)
+        self.word_label1 = PyQt6_QLabel(self,830,551,250,30)
         self.word_label1.setText('合成迷宫')
-        self.group5=PyQt5_QGroupBox(self,650,30,40*Maze_Side_length,40*Maze_Side_length)
+        self.group5=PyQt6_QGroupBox(self,650,30,40*Maze_Side_length,40*Maze_Side_length)
         LabelAdding.add_label_Diff_All_Wall(self,Maze_Side_length,self.group5)
 
         F_a_T.clear()
@@ -131,19 +131,19 @@ class answer(PyQt5_QDialog):   #答案层
         label_sit_T_or_F_floor3.clear()
 
     def add_label_5(self,x):#55.56
-        self.label1 = PyQt5_QLabel(self.group5,(x//13)*40,(x%13)*40,40,40)
+        self.label1 = PyQt6_QLabel(self.group5,(x//13)*40,(x%13)*40,40,40)
         self.label1.setVisible(label_sit_T_or_F_floor1[x])
 
-        self.label2 = PyQt5_QLabel(self.group5,(x//13)*40,(x%13)*40,40,40)
+        self.label2 = PyQt6_QLabel(self.group5,(x//13)*40,(x%13)*40,40,40)
         self.label2.setVisible(label_sit_T_or_F_floor2[x])
 
-        self.label3 = PyQt5_QLabel(self.group5,(x//13)*40,(x%13)*40,40,40)
+        self.label3 = PyQt6_QLabel(self.group5,(x//13)*40,(x%13)*40,40,40)
         self.label3.setVisible(label_sit_T_or_F_floor3[x])
 
 class LabelAdding():
     def add_label(self,group_num,label_color,Side_length,label_list): #单块层显示
             for x in range(Side_length**2):
-                self.label = PyQt5_QLabel(group_num,(x//Side_length)*40,(x%Side_length)*40,40,40)
+                self.label = PyQt6_QLabel(group_num,(x//Side_length)*40,(x%Side_length)*40,40,40)
                 if label_list[x] == True :
                     self.label.setBackgroundColor(label_color)
                 else:
@@ -152,13 +152,13 @@ class LabelAdding():
 
     def add_label_NoneWall(self,Side_length,group_num):
         for x in range(Side_length**2):
-            self.what1_unit=PyQt5_QLabel(group_num,(x//13)*40,(x%13)*40,40,40)
+            self.what1_unit=PyQt6_QLabel(group_num,(x//13)*40,(x%13)*40,40,40)
             self.what1_unit.setBackgroundColor(NoneWall_color)
             self.what1_unit.setFrameSizeStyleColor('1px solid black')
 
     def add_label_Diff_All_Wall(self,Side_length,group_num):
         for x in range(Side_length**2):
-            self.label = PyQt5_QLabel(group_num,(x//Side_length)*40,(x%Side_length)*40,40,40)
+            self.label = PyQt6_QLabel(group_num,(x//Side_length)*40,(x%Side_length)*40,40,40)
             if label_sit_T_or_F_floor1[x] == True :
                 self.label.setBackgroundColor(layer1_color)
             elif label_sit_T_or_F_floor2[x] == True :
